@@ -138,6 +138,14 @@ client.connect((err) => {
           });
       });
 
+      app.get("/experiencesById", (req, res) => {
+        experiencesCollection
+          .find({ _id: ObjectId(`${req.query._id}`) })
+          .toArray((err, documents) => {
+            res.send(documents);
+          });
+      });
+
       
 
 
